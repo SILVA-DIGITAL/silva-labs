@@ -1,0 +1,13 @@
+{
+  "plugins": ["tailwindcss"],
+  "extends": ["next", "prettier", "plugin:tailwindcss/recommended"],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "no-console": "off",
+    "no-var": "error",
+    "import/no-anonymous-default-export": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "tailwindcss/enforces-shorthand": "off",
+    "tailwindcss/classnames-order": "off",
+  },
+}
