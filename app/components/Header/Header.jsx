@@ -1,7 +1,7 @@
 'use client'
 
 const Header = () => {
-  // Your code here
-};
+  return <header>{/* Your header content goes here */}</header>
+}
 
-export default Header;
+export default Header
