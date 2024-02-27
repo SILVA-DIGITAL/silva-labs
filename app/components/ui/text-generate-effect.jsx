@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { motion, stagger, useAnimate } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
-export const TextGenerateEffect = ({ words, delay = 0.2, className }) => {
+export const TextGenerateEffect = ({ words, delay = 0.1, className }) => {
   const [scope, animate] = useAnimate()
   let wordsArray = words.split(' ')
   useEffect(() => {
@@ -26,7 +26,7 @@ export const TextGenerateEffect = ({ words, delay = 0.2, className }) => {
           return (
             <motion.span
               key={word + idx}
-              className='dark:text-white text-black opacity-0'
+              className={`${cn('opacity-0', className)}`}
             >
               {word}{' '}
             </motion.span>
@@ -37,12 +37,6 @@ export const TextGenerateEffect = ({ words, delay = 0.2, className }) => {
   }
 
   return (
-    <div className={cn('font-bold', className)}>
-      <div className='mt-4'>
-        <div className=' dark:text-white text-black text-2xl leading-snug tracking-wide'>
-          {renderWords()}
-        </div>
-      </div>
-    </div>
+    <div className={`${cn('tracking-wide', className)}`}>{renderWords()}</div>
   )
 }
