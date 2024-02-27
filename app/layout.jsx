@@ -1,24 +1,34 @@
 import { Layout } from '@/components/dom/Layout'
+import { Header } from '@/components/ui/Header'
+import { FFFont, SIFont, HelveticaNowDisplayRegular } from '@/lib/fonts'
 import '@/styles/global.css'
 
-export const metadata = {
-  title: 'Next.js + Three.js',
-  description: 'A minimal starter for Nextjs + React-three-fiber and Threejs.',
-}
-
 export default function RootLayout({ children }) {
+  console.log('FFFont', FFFont)
+  console.log('SIFont', SIFont)
+  console.log('HelveticaNowDisplayRegular', HelveticaNowDisplayRegular)
+
   return (
-    <html lang='en' className='antialiased'>
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html lang='en' className={`antialiased`}>
       <head />
       <body>
-        {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
-        <Layout>
-          {children}
-        </Layout>
+        <Header />
+        <Layout>{children}</Layout>
+        <div style={{ position: 'absolute', bottom: 40, right: 40 }}>
+          <p
+            style={{
+              flex: '1 1 0%',
+              fontSize: 12,
+              lineHeight: '1em',
+              textAlign: 'right',
+              color: 'black',
+            }}
+          >
+            <a href='http://pmnd.rs/'>silva</a>{' '}
+            <a href='https://github.com/pmndrs'>:</a>{' '}
+            <a href='https://codesandbox.io/s/zxpv7'>labs</a>
+          </p>
+        </div>
       </body>
     </html>
   )
