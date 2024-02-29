@@ -36,35 +36,30 @@ const Header = () => {
 
   return (
     <header>
+      <motion.div
+        initial={{ height: '0%', y: '-100%' }}
+        animate={{ height: '100%', y: '0%' }}
+        transition={{ duration: 0.95, ease: 'easeInOut' }}
+        className='absolute right-[60px] top-0 border-l border-black'
+      />
       <div className='relative h-fit bg-primaryColor py-6 uppercase tracking-wider overflow-hidden'>
         {/* Left Border */}
         <motion.div
           initial={{ width: '0%' }}
           animate={{ width: '50%' }}
           transition={{ duration: 0.95, ease: 'easeInOut' }}
-          className='absolute left-0 top-0 h-full border-b border-black cursor-pointer'
+          className='absolute left-0 top-0 h-full border-b border-black'
         />
         {/* Right Border */}
         <motion.div
           initial={{ width: '0%' }}
           animate={{ width: '50%' }}
           transition={{ duration: 0.95, ease: 'easeInOut' }}
-          className='absolute right-0 top-0 h-full border-b border-black cursor-pointer'
+          className='absolute right-0 top-0 h-full border-b border-black'
         />
         <div className='mx-auto flex h-full items-center justify-between gap-2 px-8'>
           <div className='flex items-center text-xs font-bold uppercase'>
-            <p
-              style={{
-                flex: '1 1 0%',
-                height: 30,
-                fontSize: 30,
-                fontWeight: '700',
-                lineHeight: '30px',
-                color: 'black',
-                letterSpacing: 0.5,
-              }}
-              className='__className_74e6d0'
-            >
+            <p className='flex-1 h-30 text-black text-3xl font-bold leading-7 tracking-wide ml-14'>
               <motion.span
                 initial='hidden'
                 animate='visible'
@@ -86,7 +81,7 @@ const Header = () => {
             </p>
           </div>
           {/* Navigation Links */}
-          <div className='flex items-center text-xs font-bold uppercase'>
+          <div className='flex items-center text-xs font-bold uppercase mr-8'>
             <motion.div
               variants={fadeInFromTop}
               initial='hidden'
@@ -179,34 +174,42 @@ const Header = () => {
         </div>
         <div style={{ height: 10 }} />
         <div className='full w-full flex-1 shrink-1 p-0 inline-flex flex-row items-end justify-center'>
-          <p className='flex-1 text-black text-8xl leading-none m-0 tracking-wide'>
-            X
-          </p>
+          <p className='flex-1 text-black text-8xl leading-none m-0 tracking-wide'></p>
           <div style={{ width: 10 }} />
-          <p className='rotate-90 translate-x-[100px] translate-y-[-220px] translate-z-[20px] transform-origin-right text-right text-black text-xs font-bold leading-none whitespace-nowrap'>
+          <p className='rotate-90 translate-x-[140px] translate-y-[-220px] translate-z-[10px] transform-origin-right text-right text-black text-xs font-bold leading-none whitespace-nowrap'>
             SCROLL DOWN FOR MORE{' '}
             <span className='mt-2 inline-block -rotate-90'>↓</span>
           </p>
         </div>
         <div style={{ height: 60 }} />
         <div className='pointer-events-all pointer-auto w-full p-0 inline-flex flex-row items-end justify-center'>
-          <p className='full whitespace-nowrap flex-1 shrink-1 w-0 text-black text-xs leading-6'>
-            <b>Wonders of Antiquity</b>
-            <br />
-            Pythagorean Mathematics
-          </p>
+          <div className='whitespace-nowrap flex-1 shrink-1 w-0 text-black'>
+            <p className='flex-1 text-black text-8xl leading-none m-0 tracking-wide'>
+              X
+            </p>
+            <p className='text-sm leading-6 font-bold'>Lorem Ipsum</p>
+            <p className='text-xs leading-6'>
+              Sed do eiusmod tempor incididunt
+            </p>
+          </div>
           <div style={{ width: 10 }} />
           <motion.p
             variants={bounceUpDown}
             initial='hidden'
             animate='visible'
-            className='full flex-1 shrink-1 w-0 text-center text-black text-xl font-bold leading-4 tracking-wide whitespace-nowrap'
+            className='full flex-1 shrink-1 w-0 text-center text-black text-sm font-bold leading-4 tracking-wide whitespace-nowrap'
           >
-            THERE ARE MIRACLES BELOW
+            THERE ARE MIRACULA BELOW
           </motion.p>
           <div style={{ width: 10 }} />
           <p className='full flex-1 shrink-1 w-0 text-right text-black text-sm leading-4'></p>
         </div>
+      </div>
+      <div className='full w-[40px] bg-black absolute top-0 left-0 h-full'>
+        <p className='text-white text-sm absolute bottom-4 right-2 -rotate-90'></p>
+      </div>
+      <div className='full w-[40px] border-l-black absolute top-0 right-0 h-full'>
+        <p className='text-white text-sm absolute bottom-4 right-2 -rotate-90'></p>
       </div>
     </header>
   )

@@ -2,11 +2,8 @@
 
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
+import { VertexParticles } from '@/components/canvas/particles/VertexParticles'
 
-const Dog = dynamic(
-  () => import('@/components/canvas/Examples').then((mod) => mod.Dog),
-  { ssr: false }
-)
 const View = dynamic(
   () => import('@/components/canvas/View').then((mod) => mod.View),
   {
@@ -36,22 +33,15 @@ const View = dynamic(
     ),
   }
 )
-const Common = dynamic(
-  () => import('@/components/canvas/View').then((mod) => mod.Common),
-  { ssr: false }
-)
 
 export default function Page() {
   return (
-    <>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-        <View orbit className='relative h-full  sm:h-48 sm:w-full'>
-          <Suspense fallback={null}>
-            <Dog scale={2} position={[0, -1.6, 0]} rotation={[0.0, -0.3, 0]} />
-            <Common color={'lightpink'} />
-          </Suspense>
-        </View>
-      </div>
-    </>
+    <div className='flex h-screen items-center justify-center'>
+      <View className='relative h-[600px] w-full'>
+        <Suspense fallback={null}>
+          <VertexParticles />
+        </Suspense>
+      </View>
+    </div>
   )
 }
